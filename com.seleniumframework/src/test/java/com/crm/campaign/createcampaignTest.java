@@ -100,14 +100,13 @@ int rannum = jlib. getRandomnum();
 String actmsg = driver.findElement(By.xpath("//span[@class=\'dvHeaderText\']")).getText();
 if(actmsg.contains(data))
 {
-	System.out.println("pass");
+	System.out.println("True");
 }
 else
 {
-	System.out.println("fail");
+	System.out.println("false");
 }
 	}
-
 
 @Test
 public void modify ()
