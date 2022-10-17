@@ -153,7 +153,7 @@ home.signoutImg();
 	//webdriver utility
 	// driverlib.mouseoveronelement(driver, ele);
 	home.signoutlink();
-	
+	driver.close();
 //	driver.findElement(By.xpath("//a[.='Sign Out']")).click();
 
 	}
