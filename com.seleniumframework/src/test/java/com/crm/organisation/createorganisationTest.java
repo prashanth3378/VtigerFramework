@@ -102,7 +102,7 @@ String data = elib.getdatafromexcel("sheet1", 0, 0)+rannum ;
 		//webdriver utility
 		home.signoutlink();
 	//	soft.assertAll();
-		
+		driver.close();
 	//	 driverlib.mouseoveronelement(driver, ele);
 	//	driver.findElement(By.xpath("//a[.='Sign Out']")).click();
 		
