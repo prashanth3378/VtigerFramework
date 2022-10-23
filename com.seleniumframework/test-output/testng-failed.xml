@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="practice.DataProvider">
+      <class name="com.crm.campaign.createcampaignTest">
         <methods>
-          <include name="SalesOrder"/>
+          <include name="createcampaignTest"/>
         </methods>
-      </class> <!-- practice.DataProvider -->
+      </class> <!-- com.crm.campaign.createcampaignTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

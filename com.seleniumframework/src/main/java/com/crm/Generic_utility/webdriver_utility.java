@@ -1,12 +1,20 @@
 package com.crm.Generic_utility;
 
+
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -156,5 +164,17 @@ public void selectdropdown (WebElement element,int index)
 	{
 		driver.manage().timeouts().setScriptTimeout(20, Timeunit.SECONDS);
 	}
+public String takescreenshotofpage(WebDriver driver ,String screenshotName ) throws Throwable
+{
+    	 Date d =new java.util.Date();
+	String date = d.toString().replace(" ", " -").replace(" :", " -");
+	TakesScreenshot ts=(TakesScreenshot) driver; 
+   File src = ts.getScreenshotAs(OutputType.FILE);{
+		File dst = new File("./screenshot/" + screenshotName +" " + ".png");
+		FileUtils.copyFile(src, dst);
+		System.out.println("screenshot taken succesfully");
+		
+			return dst.getAbsolutePath();
+		}
+	}
 }
-
