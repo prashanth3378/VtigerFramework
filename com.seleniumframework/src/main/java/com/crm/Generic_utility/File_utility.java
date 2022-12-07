@@ -19,6 +19,7 @@ public class File_utility {
 		
 		Properties pro=new Properties();
 		pro.load(fis);
+		
 		 String value = pro.getProperty(Key);
 		
 		return  value;

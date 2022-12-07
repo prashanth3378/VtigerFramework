@@ -56,7 +56,7 @@ ac.moveToElement(element).perform();
 public void switchToWindow(WebDriver driver,String partialWindowTitle)
 {
 Set<String> allid1 = driver.getWindowHandles();
-Iterator<String> it1 = allid1.iterator();
+ Iterator<String> it1 = allid1.iterator();
 while(it1.hasNext())
 {
 String wid = it1.next();
@@ -164,12 +164,12 @@ public void selectdropdown (WebElement element,int index)
 	{
 		driver.manage().timeouts().setScriptTimeout(20, Timeunit.SECONDS);
 	}
-public String takescreenshotofpage(WebDriver driver ,String screenshotName ) throws Throwable
+public String takescreenshotofpage(	WebDriver driver ,String screenshotName ) throws Throwable
 {
     	 Date d =new java.util.Date();
 	String date = d.toString().replace(" ", " -").replace(" :", " -");
 	TakesScreenshot ts=(TakesScreenshot) driver; 
-   File src = ts.getScreenshotAs(OutputType.FILE);{
+   File src = ts.getScreenshotAs(OutputType.FILE);
 		File dst = new File("./screenshot/" + screenshotName +" " + ".png");
 		FileUtils.copyFile(src, dst);
 		System.out.println("screenshot taken succesfully");
@@ -177,4 +177,3 @@ public String takescreenshotofpage(WebDriver driver ,String screenshotName ) thr
 			return dst.getAbsolutePath();
 		}
 	}
-}

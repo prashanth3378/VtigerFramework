@@ -14,12 +14,13 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class makemytrip {
 
 	public static void main(String[] args) throws Throwable {
-		System.setProperty("webdriver.chrome.driver","./chromedriver.exe");
-		WebDriver driver =new ChromeDriver();
+		System.setProperty("webdriver.gecko.driver","./geckodriver.exe");
+		WebDriver driver =new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
 		FileInputStream fis=new FileInputStream("./common data .properties.txt");
 		Properties pro=new Properties();
@@ -46,11 +47,12 @@ String data2 = cell1.getStringCellValue();
 driver.findElement(By.xpath("//input[@placeholder='To']")).sendKeys(data2);
 driver.findElement(By.xpath("//p[contains(text(),'Bengaluru, India')]")).click();
 driver.findElement(By.xpath("//span[.='DEPARTURE']")).click();
-	String month = "october 2022";
-	String date = "30";
-	Thread.sleep(2000);
+//	String month = "November 2022";
+//	String date = "30";
+//	Thread.sleep(2000);
 	//Dynamic xpath
-driver.findElement(By.xpath("//div[text()='"+month+"']/ancestor::div[@class='DayPicker-Month']/descendent::p[text()='"+date+"']")).click();
+//driver.findElement(By.xpath("//div[text()='"+month+"']/ancestor::div[@class='DayPicker-Month']/descendent::p[text()='"+date+"']")).click();
+	driver.findElement(By.xpath("//div[text()='December 2022'])/ancestor::div[@class='DayPicker-Months']/descendent::p[text()='30']" )).click();
 	}
 
 }

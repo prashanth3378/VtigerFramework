@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
 public class DataProvider {
+	
 @Test(dataProvider="dataprovider_test")
 	public void SalesOrder(String name,String deptname,String title) throws Throwable
 	{

@@ -3,6 +3,7 @@ package com.crm.Generic_utility;
 import static org.testng.Assert.fail;
 
 import java.io.File;
+import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -13,12 +14,16 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.annotations.IListenersAnnotation;
 import org.testng.internal.annotations.IListeners;
+import org.testng.reporters.Files;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class Listener implements ITestListener{
+	
 WebDriver driver;
 ExtentReports report;
 ExtentTest test;
@@ -54,6 +59,7 @@ FileUtils.copyFile(src, destFile);
 	{
 		e.printStackTrace();
 	}*/
+		
 		//step 5
 		
 		/* log fail method ,take screenshot ,attach screenshot to extent report ,add exception log*/
@@ -84,9 +90,33 @@ test.addScreenCaptureFromPath(filepath);
 		
 	System.out.println("execution of test script started");
 	
+	Date d=new Date();
+	System.out.println(d);
+	String date=d.toString().replace(" ", " ").replace(":", "-");
+	
+	ExtentSparkReporter htmlreport=new ExtentSparkReporter(new File("extentreporter.html"));
+	htmlreport.config().setDocumentTitle("Extent Report");
+	htmlreport.config().setTheme(Theme.DARK);
+	htmlreport.config().setReportName("functional test");
+	
+	/* Attach the physical report and do the system configuration*/
+	report=new ExtentReports();
+	report.attachReporter(htmlreport);
+	report.setSystemInfo("os", "windows 11");
+	report.setSystemInfo("Enviornment", "Testing Enviornment");
+	report.setSystemInfo("URL", "http://localhost:8888");
+	report.setSystemInfo("Reporter name ", "prashanth");
 	
 }
+
+
+	public void onFinish(ITestContext context) {
+	report.flush();
+	}
+	
 }
+
+
 
 
 

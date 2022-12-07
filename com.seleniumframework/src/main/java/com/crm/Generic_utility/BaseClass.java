@@ -33,9 +33,9 @@ public void BT()
 {
 	System.out.println("EXecute in parallel mode");
 }
-@Parameters("BROWSER") //this is only for cross browser
+//@Parameters("BROWSER") //this is only for cross browser
 @BeforeClass(groups= {"smokeTest","regressionTest"})
-//public void BC(String BROWSER ) throws Throwable //this is for the common browser
+//public void BC(String BROWSER ) throws Throwable 
 public void BC() throws Throwable
 {
 	File_utility file=new File_utility();

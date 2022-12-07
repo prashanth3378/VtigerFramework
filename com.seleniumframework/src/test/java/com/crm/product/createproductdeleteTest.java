@@ -37,7 +37,7 @@ public class createproductdeleteTest {
 		excel_utility elib=new excel_utility();
 		String Browser = file.getpropertyKeyvalue("browser");
 		WebDriver driver;
-		if(Browser.equalsIgnoreCase("chrome"))
+		if(Browser.equalsIgnoreCase("firefox"))
 		{
 			WebDriverManager.chromedriver().setup();
 			driver=new ChromeDriver();
